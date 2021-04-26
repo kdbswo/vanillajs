@@ -42,4 +42,3 @@ function init (){
 }
 init();
 
-selet.innerHTML(korea)
