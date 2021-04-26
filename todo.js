@@ -4,7 +4,7 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS= "toDos";
 
-const toDos = [];
+let toDos = [];
 // 할일을 받아서 array로 저장
 
 function saveToDos(){
@@ -13,7 +13,14 @@ function saveToDos(){
 }
 
 function deleteToDo(event) {
-
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function (toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    toDos = cleanToDos
+    saveToDos();
 }
 
 function paintToDo(text){
